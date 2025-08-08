@@ -24,6 +24,17 @@ with st.form("input_form"):
     gender = st.selectbox("Jenis Kelamin", ["Female", "Male"])
     marital_status = st.selectbox("Status Pernikahan", ["Single", "Married"])
     family_size = st.slider("Jumlah Anggota Keluarga", 1, 8, 3)
+
+    occupation = st.selectbox("Pekerjaan", [
+        "Healthcare", "Engineer", "Artist", "Doctor", "Lawyer",
+        "Entertainment", "Executive", "Marketing", "Homemaker", "Other"
+    ])
+
+    monthly_income = st.number_input("Pendapatan Bulanan", min_value=0, step=500)
+
+    education = st.selectbox("Kualifikasi Pendidikan", [
+        "Graduate", "PhD", "Post-Graduate", "High School", "Basic", "Other"
+    ])
     
     submitted = st.form_submit_button("Prediksi")
     
@@ -32,9 +43,12 @@ with st.form("input_form"):
             'Age': age,
             'Gender': gender,
             'Marital Status': marital_status,
-            'Family size': family_size
+            'Family size': family_size,
+            'Occupation': occupation,
+            'Monthly Income': monthly_income,
+            'Educational Qualifications': education
         }])
-        
+
         # Preprocess → Predict → Decode
         X_processed = preprocessor.transform(input_data)
         y_pred = model.predict(X_processed)
