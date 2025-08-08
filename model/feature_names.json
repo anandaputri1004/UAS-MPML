@@ -1,0 +1,5 @@
+{
+  "numeric_features": ["Age", "Family size"],
+  "categorical_features": ["Gender", "Marital Status", "Occupation", "Monthly Income"],
+  "education_feature": "Educational Qualifications"
+}
